@@ -1,3 +1,6 @@
+/* ============================== */
+/*         GLOBAL STYLES          */
+/* ============================== */
 @font-face {
     font-family: 'Stellution';
     src: url('../content/fonts/fontoe.ttf') format('truetype');
@@ -6,7 +9,7 @@
 }
 
 :root {
-    --base-color: #0a1429;
+    --base-color: #0f1123;
     --light-tone: #5ee9e9;
     --mid-tone: #2890dc;
     --dark-tone: #1831a7;
@@ -21,8 +24,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--base-color);
-    -webkit-font-smoothing: none;
     color: whitesmoke;
+    -webkit-font-smoothing: none;
+    overflow-x: hidden;
 }
 
 img,
@@ -34,6 +38,9 @@ nav img {
     will-change: transform;
 }
 
+/* ============================== */
+/*        NAVIGATION BAR          */
+/* ============================== */
 nav {
     margin: 0;
     padding: 0;
@@ -46,9 +53,10 @@ nav {
     justify-content: space-between;
     align-items: center;
     position: sticky;
-    transform: translateY(-120%);
     top: 0;
+    transform: translateY(-120%);
     transition: transform 0.8s ease-in-out;
+    z-index: 100;
 }
 
 nav.show {
@@ -71,27 +79,8 @@ nav .right {
 }
 
 nav .left .projects {
-    gap: 16px;
     display: flex;
-}
-
-nav .right img {
-    height: 64px;
-    width: auto;
-}
-
-nav .stellution-logo {
-    height: 94px;
-    width: auto;
-    transform: translateY(-150%);
-    opacity: 0;
-    transition: transform 2s ease-out, opacity 2s ease-out;
-    transition-delay: 500ms;
-}
-
-nav .stellution-logo.show {
-    transform: translateY(0);
-    opacity: 1;
+    gap: 16px;
 }
 
 nav a {
@@ -104,53 +93,149 @@ nav a {
     transition: filter 0.3s;
 }
 
-nav .left .sparkle-logo img {
-    width: 40px;
-}
-
-nav .left .bliss-logo img {
-    width: 39px;
-}
-
 nav a:hover {
     filter: saturate(0.65);
 }
 
+/* ============================== */
+/*      LOGO ANIMATIONS           */
+/* ============================== */
+nav .stellution-logo {
+    height: 94px;
+    width: auto;
+    transform: translateY(-150%);
+    opacity: 0;
+    transition: transform 2s ease-out 500ms, opacity 2s ease-out 500ms;
+}
+
+nav .stellution-logo.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.right .logo {
+    transform: translateY(-150%);
+    opacity: 0;
+}
+
+.right .logo.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.right .logo:nth-child(1) {
+    transition: transform 2s ease-out 1s, opacity 2s ease-out 1s, filter 0.3s;
+}
+
+.right .logo:nth-child(2) {
+    transition: transform 2s ease-out 1.5s, opacity 2s ease-out 1.5s, filter 0.3s;
+}
+
+.right .logo img {
+    height: 64px;
+}
+
+/* ============================== */
+/*        HEADER SECTION          */
+/* ============================== */
+.stellution-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 35px;
+}
+
+.stellution-header .logo-parent {
+    display: inline-block;
+}
+
+.stellution-header .logo-parent:hover {
+    animation: wiggle 0.65s linear both;
+}
+
+.stellution-header img {
+    height: 188px;
+    max-width: fit-content;
+    transition: opacity 3s ease-out 1.5s, transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+}
+
+.stellution-header .logo-parent:hover img {
+    transform: scale(1.1);
+    filter: saturate(0.65);
+}
+
+.stellution-header .header-images {
+    margin-top: 68px;
+}
+
+.stellution-header .header-images img {
+    height: auto;
+    width: 512px;
+    border-radius: 5%;
+}
+
+.stellution-header .header-images :nth-child(1) {
+    position: relative;
+    z-index: 1;
+    transform: translateX(50%);
+    opacity: 0;
+    left: 200px;
+}
+
+.stellution-header .header-images :nth-child(1).show {
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform 3s cubic-bezier(0.33, 1, 0.68, 1) 2100ms, 
+             opacity 2s ease-in-out 2100ms;
+}
+
+.stellution-header .header-images :nth-child(2) {
+    position: relative;
+    left:-165px;
+    top: -256px;
+    transform: translateX(-50%);
+}
+
+
+.stellution-header .header-images :nth-child(2).show {
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform 3s cubic-bezier(0.33, 1, 0.68, 1) 2100ms, 
+            opacity 2s ease-in-out 2100ms;
+}
+
+
+/* ============================== */
+/*        OTHER ELEMENTS          */
+/* ============================== */
+.background-top {
+    position: absolute;
+    width: 110%;
+    top: -50%;
+    z-index: -10;
+    box-shadow: 0 3px 1px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ============================== */
+/*        GLOBAL PROPERTIES       */
+/* ============================== */
 .hidden {
     opacity: 0;
-    filter: blur(10px);
     transition: all 2s;
 }
 
 .show {
     opacity: 1;
-    filter: blur(0);
     transform: translateY(0);
 }
 
-.logo {
-    transform: translateY(-150%);
-    opacity: 0;
-    transition: transform 2s ease-out, opacity 2s ease-out;
-}
-
-.logo.show {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.projects .logo:nth-child(1) {
-    transition-delay: 1000ms;
-}
-
-.projects .logo:nth-child(2) {
-    transition-delay: 1500ms;
-}
-
-.right .logo:nth-child(1) {
-    transition-delay: 2000ms;
-}
-
-.right .logo:nth-child(2) {
-    transition-delay: 2500ms;
+/* ============================== */
+/*         KEYFRAME ANIMATION     */
+/* ============================== */
+@keyframes wiggle {
+    25% { transform: rotate(2deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-2deg); }
 }
