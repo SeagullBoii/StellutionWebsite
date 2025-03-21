@@ -39,6 +39,19 @@ nav img {
 }
 
 /* ============================== */
+/*        GLOBAL PROPERTIES       */
+/* ============================== */
+.hidden {
+    opacity: 0;
+    transition: all 2s;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================== */
 /*        NAVIGATION BAR          */
 /* ============================== */
 nav {
@@ -143,6 +156,8 @@ nav .stellution-logo.show {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: none;
+    margin: none;
     margin-top: 35px;
 }
 
@@ -166,6 +181,8 @@ nav .stellution-logo.show {
 }
 
 .stellution-header .header-images {
+    padding: none;
+    margin: none;
     margin-top: 68px;
 }
 
@@ -175,67 +192,81 @@ nav .stellution-logo.show {
     border-radius: 5%;
 }
 
-.stellution-header .header-images :nth-child(1) {
+.stellution-header .header-images img:nth-child(1) {
     position: relative;
     z-index: 1;
-    transform: translateX(50%);
+    transform: translateX(50%) translateY(-10%);
     opacity: 0;
     left: 200px;
 }
 
-.stellution-header .header-images :nth-child(1).show {
-    transform: translateX(0);
+.stellution-header .header-images img:nth-child(1).show {
+    transform: translateX(0) translateY(0%);
     opacity: 1;
-    transition: transform 3s cubic-bezier(0.33, 1, 0.68, 1) 2100ms, 
-             opacity 2s ease-in-out 2100ms;
+    transition: transform 3s cubic-bezier(0.33, 1, 0.68, 1) 2100ms,
+        opacity 2s ease-in-out 2100ms;
 }
 
-.stellution-header .header-images :nth-child(2) {
+.stellution-header .header-images img:nth-child(2) {
     position: relative;
-    left:-165px;
+    left: -165px;
     top: -256px;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(10%);
 }
 
 
-.stellution-header .header-images :nth-child(2).show {
-    transform: translateX(0);
+.stellution-header .header-images img:nth-child(2).show {
+    transform: translateX(0) translateY(0);
     opacity: 1;
-    transition: transform 3s cubic-bezier(0.33, 1, 0.68, 1) 2100ms, 
-            opacity 2s ease-in-out 2100ms;
+    transition: transform 3s cubic-bezier(0.33, 1, 0.68, 1) 2100ms,
+        opacity 2s ease-in-out 2100ms;
 }
 
+.stellution-header .header-text {
+    transition: all 1s ease-in-out 3800ms;
+}
+
+.stellution-header .header-text {
+    position: relative;
+    top: -170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.header-text h2 {
+    margin: 5px 0; 
+}
 
 /* ============================== */
 /*        OTHER ELEMENTS          */
 /* ============================== */
 .background-top {
     position: absolute;
-    width: 110%;
+    width: 120%;
+    height: 150%;
     top: -50%;
     z-index: -10;
     box-shadow: 0 3px 1px rgba(0, 0, 0, 0.25);
-}
-
-
-/* ============================== */
-/*        GLOBAL PROPERTIES       */
-/* ============================== */
-.hidden {
-    opacity: 0;
-    transition: all 2s;
-}
-
-.show {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 /* ============================== */
 /*         KEYFRAME ANIMATION     */
 /* ============================== */
 @keyframes wiggle {
-    25% { transform: rotate(2deg); }
-    50% { transform: rotate(0deg); }
-    75% { transform: rotate(-2deg); }
+    25% {
+        transform: rotate(2deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(-2deg);
+    }
 }
