@@ -162,7 +162,6 @@ nav .stellution-logo.show {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    object-fit: contain;
     padding: none;
     margin: none;
     margin-top: 35px;
@@ -179,6 +178,7 @@ nav .stellution-logo.show {
 .stellution-header img {
     height: 188px;
     transition: opacity 3s ease-out 1.5s, transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+    object-fit: contain;
 }
 
 .stellution-header .logo-parent:hover img {
