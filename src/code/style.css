@@ -15,6 +15,7 @@
     --dark-tone: #1831a7;
     --button-fill: #3b45af;
     --button-border: #6c72ff;
+    --base-highlight: #271d4d;
 }
 
 html {
@@ -259,7 +260,34 @@ nav .stellution-logo.show {
 }
 
 /* ============================== */
-/*        OTHER ELEMENTS          */
+/*           Bottom Bar           */
+/* ============================== */
+
+.bottom-bar {
+    background-color: var(--base-color);
+    display: flex;
+    flex-direction: row-reverse;
+    border-top: 2px solid var(--base-highlight);;
+    gap: 0px;
+    width: 100%;
+}
+
+.bottom-bar a {
+    padding: 10px 15px 10px;
+    text-decoration: none;
+    color: gray;
+    background-color: var(--base-color);
+    border-radius: 5px;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.bottom-bar a:hover {
+    color: white;
+    background-color: var(--base-highlight);
+}
+
+/* ============================== */
+/*         OTHER ELEMENTS         */
 /* ============================== */
 .background-top {
     position: absolute;
