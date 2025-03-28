@@ -34,13 +34,21 @@ body {
     image-rendering: pixelated;
 }
 
-img,
-nav img {
+img, 
+nav img{
     display: block;
     image-rendering: pixelated;
     backface-visibility: hidden;
     transform: translateZ(0);
     will-change: transform;
+}
+
+img::selection {
+    background-color: transparent;
+}
+
+* {
+    scrollbar-color: var(--base-highlight) var(--base-color);
 }
 
 /* ============================== */
@@ -74,7 +82,7 @@ nav {
     top: 0;
     transform: translateY(-120%);
     transition: transform 0.4s ease-in-out;
-    z-index: 100;
+    z-index: 20;
     -webkit-transition: transform 0.4s ease-in-out;
     -moz-transition: transform 0.4s ease-in-out; 
 }
@@ -262,7 +270,6 @@ nav .stellution-logo.show {
 /* ============================== */
 /*           Bottom Bar           */
 /* ============================== */
-
 .bottom-bar {
     background-color: var(--base-color);
     display: flex;
@@ -272,7 +279,7 @@ nav .stellution-logo.show {
     width: 100%;
 }
 
-.bottom-bar a {
+.bottom-bar .info-button{
     padding: 10px 15px 10px;
     text-decoration: none;
     color: gray;
@@ -281,9 +288,75 @@ nav .stellution-logo.show {
     transition: color 0.3s, background-color 0.3s;
 }
 
-.bottom-bar a:hover {
+.bottom-bar .info-button:hover {
     color: white;
     background-color: var(--base-highlight);
+}
+
+/* ============================== */
+/*            Info Tabs           */
+/* ============================== */
+.info {
+    box-shadow: 1px 1px 34px 0px rgba(0,0,0,0.75);
+}
+
+.info-container {
+    position: fixed;
+    bottom: -100%; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    transition: bottom 1s cubic-bezier(0.16, 1, 0.3, 1); 
+    z-index: 100;
+}
+
+.info-container.show {
+    bottom: 0; 
+}
+
+.info-container .info {
+    background-color: var(--base-color);
+    border-radius: 15px;
+    overflow-y: auto;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+    width: 65%;
+    height: 830px;
+}
+
+.info-container .info .h2-parent {
+    border-bottom: 1px solid rgb(179, 179, 179);
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-bottom: 0.4rem;
+    width: 98.5%;
+}
+
+.info-container .info h2 {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.info .close-button {
+    stroke-width: 5px;
+    stroke:white;
+    transition: 0.25s;
+    position: absolute;
+    margin: 5px;
+    right: 0;
+}
+
+.info .close-button:hover{
+    stroke-width: 7px;
+    stroke:#931d5a;
+    cursor: pointer;
 }
 
 /* ============================== */
@@ -301,6 +374,25 @@ nav .stellution-logo.show {
     z-index: -10;
     
     box-shadow: 0 3px 1px rgba(0, 0, 0, 0.25);
+}
+
+.background-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(0px);
+    visibility: hidden;
+    z-index: 30;
+    transition: 0.4s;
+    pointer-events: none;
+}
+
+.background-blur.show {
+    backdrop-filter: blur(5px);
+    visibility: visible;
+    pointer-events: initial;
 }
 
 .basic-button {
@@ -343,6 +435,9 @@ nav .stellution-logo.show {
     transform: translateX(-50%);
 }
 
+.hoverable-div {
+    cursor: pointer;
+}
 
 /* ============================== */
 /*         KEYFRAME ANIMATION     */

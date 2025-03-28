@@ -22,7 +22,7 @@
         </div>
         <div class="right">
             <a href="https://github.com/MrScautHD/Stellution" class="hidden logo github-logo">
-                <img src="src/content/logos/discordLogo.png" alt="Github Logo"> Github
+                <img src="src/content/logos/githubLogo.png" alt="Github Logo"> Github
             </a>
             <a href="https://discord.gg/7XKw6YQa76" class="hidden logo discord-logo">
                 <img src="src/content/logos/discordLogo.png" alt="Discord Logo"> Discord
@@ -56,14 +56,47 @@
     <div id="projects"></div>
 
     <div class="bottom-bar">
-        <a href="src/code/html/privacy_policy.html" target="_blank">Privacy Policy</a>
-        <a href="src/code/html/imprint.html" target="_blank">Imprint</a>
-        <a href="src/code/html/about.html" target="_blank">About</a>
+        <div onclick='onInfoButtonClick("Privacy")' class="hoverable-div info-button">Privacy Policy</div>
+        <div onclick='onInfoButtonClick("Imprint")' class="hoverable-div info-button">Imprint</div>
+        <div onclick='onInfoButtonClick("About")' class="hoverable-div info-button">About</div>
     </div>
 
+    <div class="background-top"></div>
+    <div class="background-blur"></div>
+
+    <div class="info-container">
+        <div class="info imprint">
+            <svg height="40" width="40" xmlns="http://www.w3.org/2000/svg" onclick='onInfoCloseButtonClick()'
+                class="close-button">
+                <line x1="10" y1="10" x2="30" y2="30" />
+                <line x1="30" y1="10" x2="10" y2="30" />
+            </svg>
+            <div class="h2-parent">
+                <h2>Imprint</h2>
+            </div>
+        </div>
+        <div class="info about">
+            <svg height="40" width="40" xmlns="http://www.w3.org/2000/svg" onclick='onInfoCloseButtonClick()'
+                class="close-button">
+                <line x1="10" y1="10" x2="30" y2="30" />
+                <line x1="30" y1="10" x2="10" y2="30" />
+            </svg>
+            <div class="h2-parent">
+                <h2>About</h2>
+            </div>
+        </div>
+        <div class="info privacy-policy">
+            <svg height="40" width="40" xmlns="http://www.w3.org/2000/svg" onclick='onInfoCloseButtonClick()'
+                class="close-button">
+                <line x1="10" y1="10" x2="30" y2="30" />
+                <line x1="30" y1="10" x2="10" y2="30" />
+            </svg>
+            <div class="h2-parent">
+                <h2>Privacy Policy</h2>
+            </div>
+        </div>
     </div>
 
-    <div class="background-top">
 
 </body>
 
