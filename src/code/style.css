@@ -28,14 +28,14 @@ body {
     padding: 0;
     background-color: var(--base-color);
     color: whitesmoke;
-    -webkit-font-smoothing: none; 
+    -webkit-font-smoothing: none;
     -moz-osx-font-smoothing: none;
     overflow-x: hidden;
     image-rendering: pixelated;
 }
 
-img, 
-nav img{
+img,
+nav img {
     display: block;
     image-rendering: pixelated;
     backface-visibility: hidden;
@@ -43,6 +43,7 @@ nav img{
     will-change: transform;
 }
 
+br::selection,
 img::selection {
     background-color: transparent;
 }
@@ -84,7 +85,7 @@ nav {
     transition: transform 0.4s ease-in-out;
     z-index: 20;
     -webkit-transition: transform 0.4s ease-in-out;
-    -moz-transition: transform 0.4s ease-in-out; 
+    -moz-transition: transform 0.4s ease-in-out;
 }
 
 nav.show {
@@ -250,11 +251,11 @@ nav .stellution-logo.show {
 }
 
 .header-text h2 {
-    margin: 5px 0; 
+    margin: 5px 0;
 }
 
 .header-text h1 {
-    margin: 5px 0; 
+    margin: 5px 0;
 }
 
 .header-text h3 {
@@ -274,12 +275,13 @@ nav .stellution-logo.show {
     background-color: var(--base-color);
     display: flex;
     flex-direction: row-reverse;
-    border-top: 2px solid var(--base-highlight);;
+    border-top: 2px solid var(--base-highlight);
+    ;
     gap: 0px;
     width: 100%;
 }
 
-.bottom-bar .info-button{
+.bottom-bar .info-button {
     padding: 10px 15px 10px;
     text-decoration: none;
     color: gray;
@@ -297,21 +299,22 @@ nav .stellution-logo.show {
 /*            Info Tabs           */
 /* ============================== */
 .info {
-    box-shadow: 1px 1px 34px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 34px 0px rgba(0, 0, 0, 0.75);
 }
 
 .info-container {
     position: fixed;
-    bottom: -100%; 
+    bottom: -100%;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    transition: bottom 1s cubic-bezier(0.16, 1, 0.3, 1); 
+    transition: bottom 1s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: auto;
     z-index: 100;
 }
 
 .info-container.show {
-    bottom: 0; 
+    bottom: 0;
 }
 
 .info-container .info {
@@ -326,36 +329,74 @@ nav .stellution-logo.show {
     bottom: 10px;
     transform: translateX(-50%);
     width: 65%;
-    height: 830px;
+    height: 95.5vh;
 }
 
-.info-container .info .h2-parent {
+.info-container .info .title {
+    border-bottom: 2px solid rgb(179, 179, 179);
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 60px;
+    padding-bottom: 0.4rem;
+    width: 98.5%;
+}
+
+
+.info-container .info .category-marker {
     border-bottom: 1px solid rgb(179, 179, 179);
     display: flex;
     align-items: center;
     margin: 0 auto;
     margin-top: 20px;
     padding-bottom: 0.4rem;
-    width: 98.5%;
+    width: 85%;
+    height: 30px;
 }
 
-.info-container .info h2 {
+.info-container .info .category-marker h2 {
+    padding-left: 5px;
+}
+
+.info-container .info .text-container{
+    padding-left: 10px;
+    color: lightgray;
+    width: 85%;
+}
+
+.info-container .info .text-container .star-point{
+    color: lightgray;
+    height: 0.5em;
+    float:left;
+    position: relative;
+    top:0.2em;
+    margin-right: 0.25em;
+}
+
+
+.info-container .info a{
+    color: var(--light-tone);
+}
+
+.info-container .info h1 {
     width: fit-content;
     margin: 0 auto;
 }
 
 .info .close-button {
     stroke-width: 5px;
-    stroke:white;
+    stroke: white;
     transition: 0.25s;
     position: absolute;
-    margin: 5px;
+    margin: 20px;
+    margin-top: 10px;
     right: 0;
 }
 
-.info .close-button:hover{
+.info .close-button:hover {
     stroke-width: 7px;
-    stroke:#931d5a;
+    stroke: #931d5a;
     cursor: pointer;
 }
 
@@ -372,7 +413,7 @@ nav .stellution-logo.show {
     width: 100%;
     height: 1060px;
     z-index: -10;
-    
+
     box-shadow: 0 3px 1px rgba(0, 0, 0, 0.25);
 }
 
